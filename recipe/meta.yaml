@@ -1,13 +1,14 @@
 {% set name = "Cm" %}
 {% set version = "9.0.1" %}
+{% set tag = "v9r0p1" %}
 
 package:
    name: "{{ name|lower }}"
    version: "{{ version }}"
 
 source:
-   url: http://software.igwn.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
-   sha256: ffcd65f5ff779db07bc2fbe982da6277ffa495aa6d66300c3194bd4a344311a4
+   url: https://git.ligo.org/virgo/virgoapp/{{ name }}/-/archive/{{ version }}/{{ name }}-{{ version }}.tar.gz
+   sha256: 65b04a591957d892cc33bda46f679ea23fa865ee98f280fb8b3de7da74621a72
 
 build:
   number: 0
