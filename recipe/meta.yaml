@@ -30,6 +30,7 @@ test:
   commands:
     - test -x ${PREFIX}/bin/cm  # [unix]
     - test -x ${PREFIX}/bin/NameServer  # [unix]
+    - test -x ${PREFIX}/bin/NameServer.start  # [unix]
     - test -f ${PREFIX}/lib/libcm.so  # [unix]
     - pkg-config --print-errors --modversion cm
 
