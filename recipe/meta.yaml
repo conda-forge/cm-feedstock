@@ -7,7 +7,7 @@ package:
    version: "{{ version }}"
 
 source:
-   url: https://git.ligo.org/virgo/virgoapp/{{ name }}/-/archive/{{ version }}/{{ name }}-{{ version }}.tar.gz
+   url: https://git.ligo.org/virgo/virgoapp/{{ name }}/-/archive/{{ tag }}/{{ name }}-{{ tag }}.tar.gz
    sha256: 65b04a591957d892cc33bda46f679ea23fa865ee98f280fb8b3de7da74621a72
 
 build:
