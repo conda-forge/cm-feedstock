@@ -10,7 +10,9 @@ source:
    sha256: 65b04a591957d892cc33bda46f679ea23fa865ee98f280fb8b3de7da74621a72
 
 build:
-  number: 0
+  run_exports:
+    - {{ pin_subpackage("cm", max_pin="x") }}
+  number: 1
   skip: True  # [win or osx]
 
 requirements:
