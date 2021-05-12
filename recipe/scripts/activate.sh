@@ -20,7 +20,7 @@ mkdir -p $TMPDIR/cm/mgr
 export CMMGR=$TMPDIR/cm/mgr
 
 #Create the cmdomains file if it does not already exist
-CMDOMAINS=$CONDA_PREFIX/share/cm/mgr/CmDomains
+CMDOMAINS=$TMPDIR/cm/mgr/CmDomains
 if [ ! -f "$CMDOMAINS" ]; then 
-    echo "Conda localhost  19000 19001 899 $TMPDIR/cm" > $CONDA_PREFIX/share/cm/mgr/CmDomains
+    echo "Conda localhost  19000 19001 899 $TMPDIR/cm" > $TMPDIR/cm/mgr/CmDomains
 fi
