@@ -1,5 +1,5 @@
 {% set name = "Cm" %}
-{% set version = "9.0.1" %}
+{% set version = "9.0.3" %}
 
 package:
    name: "{{ name|lower }}"
@@ -7,12 +7,12 @@ package:
 
 source:
    url: http://software.igwn.org/sources/source/{{ name|lower }}-{{ version }}.tar.gz
-   sha256: 65b04a591957d892cc33bda46f679ea23fa865ee98f280fb8b3de7da74621a72
+   sha256: 8d597ab6318c40e06b0fdd27a02d89509ac0906e793f415be7664430d8285fb0
 
 build:
   run_exports:
     - {{ pin_subpackage("cm", max_pin="x") }}
-  number: 2
+  number: 0
   skip: True  # [win or osx]
 
 requirements:
@@ -30,7 +30,7 @@ test:
     - pkg-config
   commands:
     - test -x ${PREFIX}/bin/cm  # [unix]
-    - test -x ${PREFIX}/bin/NameServer  # [unix]
+    - test -x ${PREFIX}/bin/CmNameServer  # [unix]
     - test -x ${PREFIX}/bin/NameServer.start  # [unix]
     - test -f ${PREFIX}/lib/libcm.so  # [unix]
     - pkg-config --print-errors --modversion cm
