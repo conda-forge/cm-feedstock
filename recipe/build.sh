@@ -8,7 +8,6 @@ meson_config_args=(
   --wrap-mode=nofallback
   --buildtype=release
   --backend=ninja
-  -Dtests=false
 )
 
 mkdir forgebuild
