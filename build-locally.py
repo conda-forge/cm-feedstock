@@ -67,6 +67,7 @@ def verify_config(ns):
                 "Need OSX_SDK_DIR env variable set. Run 'export OSX_SDK_DIR=SDKs' "
                 "to download the SDK automatically to 'SDKs/MacOSX<ver>.sdk'. "
                 "Setting this variable implies agreement to the licensing terms of the SDK by Apple."
+
             )
 
 
