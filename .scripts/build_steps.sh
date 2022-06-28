@@ -30,7 +30,8 @@ pkgs_dirs:
   - /opt/conda/pkgs
 
 CONDARC
-
+GET_BOA=boa
+BUILD_CMD=mambabuild
 
 mamba install --update-specs --yes --quiet --channel conda-forge \
     conda-build pip boa conda-forge-ci-setup=3
@@ -44,8 +45,6 @@ source run_conda_forge_build_setup
 
 # make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
-
-
 
 ( endgroup "Configuring conda" ) 2> /dev/null
 
