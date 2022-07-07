@@ -1,5 +1,5 @@
 {% set name = "Cm" %}
-{% set version = "9.0.3" %}
+{% set version = "10.3.4" %}
 
 package:
    name: "{{ name|lower }}"
@@ -7,12 +7,12 @@ package:
 
 source:
    url: http://software.igwn.org/sources/source/{{ name|lower }}-{{ version }}.tar.gz
-   sha256: 8d597ab6318c40e06b0fdd27a02d89509ac0906e793f415be7664430d8285fb0
+   sha256: 7450ebfc307fdf6255ba7aafc913879e0a50c85442288dd8ad0af3030858cb4a
 
 build:
   run_exports:
     - {{ pin_subpackage("cm", max_pin="x") }}
-  number: 2
+  number: 1
   skip: True  # [win or osx]
 
 requirements:
