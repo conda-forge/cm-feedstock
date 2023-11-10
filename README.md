@@ -1,11 +1,11 @@
-About cm
-========
+About cm-feedstock
+==================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cm-feedstock/blob/main/LICENSE.txt)
 
 Home: https://git.ligo.org/virgo/virgoapp/Cm/
 
 Package license: BSD-4-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cm-feedstock/blob/main/LICENSE.txt)
 
 Summary: A multitask communication package
 
@@ -39,7 +39,7 @@ Current build status
               <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11850&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cm-feedstock?branchName=main&jobName=linux&configuration=linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cm-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr>
