@@ -9,11 +9,11 @@ endif
 # Set default CM directories
 if (! $?CMROOT) then
   if ($?CMTMPDIR) then
-    setenv CMROOT "${CMTMPDIR}/cm"
+    setenv CMROOT "${CMTMPDIR}/cm-`id -u`"
   else if ($?TMPDIR) then
-    setenv CMROOT "${TMPDIR}/cm"
+    setenv CMROOT "${TMPDIR}/cm-`id -u`"
   else
-    setenv CMROOT "/tmp/cm"
+    setenv CMROOT "/tmp/cm-`id -u`"
   endif
   setenv _CONDA_UNSET_CMROOT 1
 endif

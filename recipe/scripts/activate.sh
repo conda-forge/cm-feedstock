@@ -8,7 +8,7 @@ fi
 
 # Set default CM directories
 if [ -z "${CMROOT+x}" ]; then
-  export CMROOT="${CMTMPDIR:-${TMPDIR:-/tmp}}/cm"
+  export CMROOT="${CMTMPDIR:-${TMPDIR:-/tmp}}/cm-$(id -u)"
   export _CONDA_UNSET_CMROOT=1
 fi
 if [ -z "${CMMGR+x}" ]; then

@@ -7,11 +7,11 @@ end
 # Set default CM directories
 if not set -q CMROOT
     if set -q CMTMPDIR
-        set -gx CMROOT "$CMTMPDIR/cm"
+        set -gx CMROOT "$CMTMPDIR/cm-"(id -u)
     else if set -q TMPDIR
-        set -gx CMROOT "$TMPDIR/cm"
+        set -gx CMROOT "$TMPDIR/cm-"(id -u)
     else
-        set -gx CMROOT "/tmp/cm"
+        set -gx CMROOT "/tmp/cm-"(id -u)
     end
     set -gx _CONDA_UNSET_CMROOT 1
 end
