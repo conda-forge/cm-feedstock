@@ -1,26 +1,27 @@
 #!/bin/bash
-# Check if CMDOMAIN varible is set to check if we are already in a cm domain if not
-# then create a custom conda cm domain that can send/ recieve messages
+
+# Set a default CMDOMAIN
 if [ -z "${CMDOMAIN+x}" ]; then
-    export CMDOMAIN=Conda
+  export CMDOMAIN=Conda
+  export _CONDA_UNSET_CMDOMAIN=1
+fi
 
-    if [ ! -z "${CMMGR+x}" ]; then
-        export _CONDA_SET_CMMGR=$CMMGR
-    fi
+# Set default CM directories
+if [ -z "${CMROOT+x}" ]; then
+  export CMROOT="${CMTMPDIR:-${TMPDIR:-/tmp}}/cm-$(id -u)"
+  export _CONDA_UNSET_CMROOT=1
+fi
+if [ -z "${CMMGR+x}" ]; then
+  export CMMGR="${CMROOT}/mgr"
+  export _CONDA_UNSET_CMMGR=1
+fi
+if [ -z "${CMDOMAINS+x}" ]; then
+  export CMDOMAINS=$CMMGR/CmDomains
+  export _CONDA_UNSET_CMDOMAINS=1
+fi
 
-    # Check if varible CMTMPDIR exist, otherwise checks if TMPDIR varible is set and if not sets it to /tmp
-    if [ ! -z "$CMTMPDIR" ]; then
-        TMPDIR=$CMTMPDIR
-    elif [ -z "$TMPDIR" ]; then
-        TMPDIR=/tmp
-    fi
-
-    mkdir -p $TMPDIR/cm/mgr
-    export CMMGR=$TMPDIR/cm/mgr
-
-    #Create the cmdomains file if it does not already exist
-    CMDOMAINS=$TMPDIR/cm/mgr/CmDomains
-    if [ ! -f "$CMDOMAINS" ]; then
-        echo "Conda localhost  19000 19001 899 $TMPDIR/cm" > $TMPDIR/cm/mgr/CmDomains
-    fi
+# Create a default CmDomains file
+if [ "${CMDOMAIN}" = "Conda" ] && [ ! -f "$CMDOMAINS" ]; then
+  mkdir -p "$CMMGR"
+  echo "Conda localhost 19000 19001 899 ${CMROOT}" > "$CMDOMAINS"
 fi
