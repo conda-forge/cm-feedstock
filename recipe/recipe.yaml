@@ -1,0 +1,63 @@
+schema_version: 1
+
+context:
+  version: "10.3.13"
+
+package:
+  name: cm
+  version: ${{ version }}
+
+source:
+  url: https://git.ligo.org/virgo/virgoapp/Cm/-/archive/${{ version }}/Cm-${{ version }}.tar.gz
+  sha256: 997f55b48ef7909d634a2e65632a1743e8fdee9855c1baf2e7dc46ef3ce6d52f
+
+build:
+  number: 0
+  skip:
+    - not linux
+
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+    - bison
+    - flex
+    - meson >=0.49
+    - ninja
+    - pkg-config
+  run_exports:
+    - ${{ pin_subpackage("cm", upper_bound="x") }}
+
+tests:
+  - package_contents:
+      bin:
+        - cm
+        - CmNameServer
+        - NameServer.start
+      lib:
+        - cm
+  - requirements:
+      run:
+        - pkg-config
+    script:
+      - pkg-config --print-errors --modversion cm
+
+about:
+  summary: A multitask communication package
+  description: |
+    The Cm package is an attempt to make simple and system
+    independant the task-to-task communication problem. It
+    covers the communication between tasks that operate on
+    different operating systems, different architectures by
+    hiding every detail of the use of TCPIP on which it is based.
+  homepage: https://git.ligo.org/virgo/virgoapp/Cm/
+  repository: https://git.ligo.org/virgo/virgoApp/Cm/
+  license: BSD-4-Clause
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - duncanmmacleod
+    - erinelizabethseder-virgo
+    - fcarbogn
