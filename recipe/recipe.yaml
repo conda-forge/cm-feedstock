@@ -42,6 +42,16 @@ tests:
         - pkg-config
     script:
       - pkg-config --print-errors --modversion cm
+  - script:
+      env:
+        CMTMPDIR: "$(pwd)/tmp"
+      content:
+        - echo $CMDOMAIN
+        - echo $CMROOT
+        - echo $CMMGR
+        - echo $CMDOMAINS
+        - cat $CMDOMAINS
+        - grep "Conda localhost" $CMDOMAINS
 
 about:
   summary: A multitask communication package
